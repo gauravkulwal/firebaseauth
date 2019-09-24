@@ -1,0 +1,13 @@
+<mat-toolbar color="primary">
+    <span>MyAddress</span>
+    <span style="flex: 1 1 auto"></span>
+    <div *ngIf="auth.afAuth.authState | async as user ; else showlogin">
+        <span>{{user.displayName}}</span>
+        <button mat-raised-button (click)="auth.logout()">Logout</button>
+    </div>
+    <ng-template #showlogin>
+        <button mat-raised-button (click)="auth.login()">Login with google</button>
+    </ng-template>
+
+
+</mat-toolbar>
